@@ -14,8 +14,8 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/GJJShop');
-
+//mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/GJJShop');
+mongoose.connect('mongodb+srv://ignatiusn:Mercy+123@cluster0.iaicec8.mongodb.net/OnlineShop?retryWrites=true&w=majority');
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
@@ -43,7 +43,7 @@ app.use((err, req, res, next) =>
   res.status(500).send({ message: err.message });
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 const httpServer = http.Server(app);
 const io = new Server(httpServer, { cors: { origin: '*' } });
