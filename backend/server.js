@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/GJJShop');
-mongoose.connect('mongodb+srv://ignatiusn:Mercy+123@cluster0.iaicec8.mongodb.net/OnlineShop?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://gwhoami_development:FUkyN6nhes9F4E67@gwhoamidev.yayght4.mongodb.net/OnlineShop?retryWrites=true&w=majority');
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
