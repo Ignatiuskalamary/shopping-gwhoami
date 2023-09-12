@@ -14,8 +14,15 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const username = "gwhoami_development";
+const password = "FUkyN6nhes9F4E67";
+const cluster = "gwhoamidev.yayght4";
+const dbname = "OnlineShop";
+mongoose.connect(`mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`);
+
 //mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/GJJShop');
-mongoose.connect('mongodb+srv://gwhoami_development:FUkyN6nhes9F4E67@gwhoamidev.yayght4.mongodb.net/OnlineShop?retryWrites=true&w=majority');
+//mongoose.connect('mongodb+srv://gwhoami_development:FUkyN6nhes9F4E67@gwhoamidev.yayght4.mongodb.net/OnlineShop?retryWrites=true&w=majority');
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
